@@ -4,13 +4,19 @@
  * 每一个 Schema 对应 MongoDB 中的一个集合（collection
  */
 
-
+// 用户表
 const mongoose = require('mongoose')
-const Schema = mongoose.Schema;
+const Schema = mongoose.Schema
 
 const UserSchema = new Schema({
-    name:String
+  username: String,
+  password: String,
+  create_time: String,
+  token: {
+    type: String,
+    default: ''
+  }
 })
 
-const User = mongoose.model('t1', UserSchema)
+const User = mongoose.model('users', UserSchema)
 module.exports = User
